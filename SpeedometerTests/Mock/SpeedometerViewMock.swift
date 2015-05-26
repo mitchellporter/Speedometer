@@ -4,6 +4,7 @@ class SpeedometerViewMock: SpeedometerView {
     var lastSubView: UIView?
     var setupMaskLayerCalled = false
     var setupGradientLayerCalled = false
+    var addMaskedSublayerCalled = false
     var mockMaskLayer: CGRect?
     
     override func addSubview(subView: UIView) {
@@ -18,6 +19,11 @@ class SpeedometerViewMock: SpeedometerView {
     override func setupGradientLayer() {
         self.setupGradientLayerCalled = true
         super.setupGradientLayer()
+    }
+    
+    override func addMaskedSublayer() {
+        self.addMaskedSublayerCalled = true
+        super.addMaskedSublayer()
     }
     
     override func maskLayerFrame() -> CGRect {

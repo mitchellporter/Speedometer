@@ -51,4 +51,35 @@ class SpeedometerViewTest: XCTestCase {
         XCTAssertTrue(CGRectEqualToRect(view.bounds, view.maskLayer.frame))
         XCTAssertTrue(CGPathEqualToPath(UIBezierPath(ovalInRect: view.mockMaskLayer!).CGPath, view.maskLayer.path))
     }
+    
+    func testThatSetupGradientLayerSetsLayerPropertiesCorrectly() {
+        let view = SpeedometerViewMock(frame: CGRectZero, radius: 15.0)
+        view.bounds = CGRectMake(0.0, 0.0, 3.0, 4.0)
+        view.mockMaskLayer = CGRectMake(0.0, 0.0, 20.0, 20.0)
+        
+        view.setupGradientLayer()
+        
+        XCTAssertTrue(CGRectEqualToRect(view.bounds, view.gradientLayer.frame))
+        XCTAssertEqual(2, view.gradientLayer.locations.count)
+        XCTAssertEqual(0.0, view.gradientLayer.locations[0] as! Double)
+        XCTAssertEqual(0.5, view.gradientLayer.locations[1] as! Double)
+        XCTAssertEqual(2, view.gradientLayer.colors.count)
+        XCTAssertEqual(UIColor(red: 255.0/255.0, green: 149.0/255.0, blue: 0.0/255.0, alpha: 1.0), view.gradientLayer.colors[0] as! UIColor)
+        XCTAssertEqual(UIColor(red: 255.0/255.0, green: 94.0/255.0, blue: 59.0/255.0, alpha: 1.0), view.gradientLayer.colors[1] as! UIColor)
+    }
+    
+    func testThatInitializerAddsMaskedSublayer() {
+        let view = SpeedometerViewMock(frame: CGRectZero, radius: 2.0)
+        
+        XCTAssertTrue(view.addMaskedSublayerCalled)
+    }
+    
+    func testThatAddMaskedSublayerAddsSublayer() {
+        let view = SpeedometerView(frame: CGRectZero, radius: 3.0)
+        
+        view.addMaskedSublayer()
+        
+        XCTAssertTrue(contains(view.layer.sublayers as! [CALayer], view.gradientLayer))
+        XCTAssertEqual(view.gradientLayer.mask, view.maskLayer)
+    }
 }
