@@ -14,6 +14,8 @@
 		654F643D1B1451C80087F148 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 654F643B1B1451C80087F148 /* LaunchScreen.xib */; };
 		654F64591B14552F0087F148 /* SpeedometerViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654F64581B14552F0087F148 /* SpeedometerViewTest.swift */; };
 		654F645B1B1456790087F148 /* SpeedometerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654F645A1B1456790087F148 /* SpeedometerView.swift */; };
+		654F645E1B145B820087F148 /* SpeedometerViewMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654F645D1B145B820087F148 /* SpeedometerViewMock.swift */; };
+		654F645F1B1461920087F148 /* SpeedometerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654F645A1B1456790087F148 /* SpeedometerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,9 +38,10 @@
 		654F643C1B1451C80087F148 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		654F64421B1451C80087F148 /* SpeedometerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpeedometerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		654F64471B1451C80087F148 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		654F64571B14552E0087F148 /* SpeedometerTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "SpeedometerTests-Bridging-Header.h"; path = "../Views/SpeedometerTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		654F64571B14552E0087F148 /* SpeedometerTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SpeedometerTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		654F64581B14552F0087F148 /* SpeedometerViewTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeedometerViewTest.swift; sourceTree = "<group>"; };
 		654F645A1B1456790087F148 /* SpeedometerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeedometerView.swift; sourceTree = "<group>"; };
+		654F645D1B145B820087F148 /* SpeedometerViewMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeedometerViewMock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +104,7 @@
 		654F64451B1451C80087F148 /* SpeedometerTests */ = {
 			isa = PBXGroup;
 			children = (
+				654F645C1B145B1E0087F148 /* Mock */,
 				654F64461B1451C80087F148 /* Supporting Files */,
 				654F64561B1454AB0087F148 /* Views */,
 			);
@@ -155,6 +159,14 @@
 				654F64581B14552F0087F148 /* SpeedometerViewTest.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		654F645C1B145B1E0087F148 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				654F645D1B145B820087F148 /* SpeedometerViewMock.swift */,
+			);
+			path = Mock;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,7 +280,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				654F645E1B145B820087F148 /* SpeedometerViewMock.swift in Sources */,
 				654F64591B14552F0087F148 /* SpeedometerViewTest.swift in Sources */,
+				654F645F1B1461920087F148 /* SpeedometerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
