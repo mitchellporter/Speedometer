@@ -82,4 +82,13 @@ class SpeedometerViewTest: XCTestCase {
         XCTAssertTrue(contains(view.layer.sublayers as! [CALayer], view.gradientLayer))
         XCTAssertEqual(view.gradientLayer.mask, view.maskLayer)
     }
+    
+    func testThatLayoutingSubviewsTriggerSettingUpLayers() {
+        let view = SpeedometerViewMock(frame: CGRectZero, radius: 11.0)
+        
+        view.layoutSubviews()
+        
+        XCTAssertTrue(view.setupMaskLayerCalled)
+        XCTAssertTrue(view.setupGradientLayerCalled)
+    }
 }

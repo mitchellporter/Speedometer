@@ -51,4 +51,13 @@ public class SpeedometerView: UIView {
         self.gradientLayer.mask = self.maskLayer
         self.layer.addSublayer(self.gradientLayer)
     }
+    
+    // MARK: - Layout
+    
+    override public func layoutSubviews() {
+        super.layoutSubviews()
+
+        self.setupMaskLayer()
+        self.setupGradientLayer()
+    }
 }
