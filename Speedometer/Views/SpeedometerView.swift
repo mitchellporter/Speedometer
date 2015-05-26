@@ -32,7 +32,7 @@ public class SpeedometerView: UIView {
         self.maskLayer.path = UIBezierPath(ovalInRect: self.maskLayerFrame()).CGPath
         self.maskLayer.strokeColor = UIColor.blackColor().CGColor
         self.maskLayer.fillColor = UIColor.clearColor().CGColor
-        self.maskLayer.lineWidth = 25.0
+        self.maskLayer.lineWidth = 10.0
         self.maskLayer.strokeStart = 0.1
         self.maskLayer.strokeEnd = 0.9
 
@@ -77,11 +77,20 @@ public class SpeedometerView: UIView {
     // MARK: - Utilities
     
     public func setSpeed(speed: Double) {
+        let currentRatio = self.currentSpeed / self.maxSpeed
+        let newRatio = speed / self.maxSpeed
+        let begin = currentRatio * 0.8 + 0.1
+        let end = newRatio * 0.8 + 0.1
+        
         self.currentSpeed = speed
         
-        let ratio = self.currentSpeed / self.maxSpeed
-        let end = 0.8 * ratio + 0.1
+        let animation = CABasicAnimation()
+        animation.keyPath = "strokeEnd"
+        animation.fromValue = CGFloat(begin)
+        animation.toValue = CGFloat(end)
+        animation.duration = 1
+        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
         
-        self.maskLayer.strokeEnd = CGFloat(end)
+        self.maskLayer.addAnimation(animation, forKey: "speed")
     }
 }

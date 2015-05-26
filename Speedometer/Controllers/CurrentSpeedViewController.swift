@@ -3,6 +3,8 @@ import UIKit
 
 class CurrentSpeedViewController: UIViewController {
     var backgroundLayer: CAGradientLayer!
+    var speedometerView: SpeedometerView!
+    var currentSpeedLabel: UILabel!
     
     override func viewDidLoad() {
         self.backgroundLayer = CAGradientLayer()
@@ -10,9 +12,18 @@ class CurrentSpeedViewController: UIViewController {
         self.view.layer.addSublayer(self.backgroundLayer)
         
         let radius = 100.0
-        let speedometerView = SpeedometerView(frame: self.speedometerFrame(radius), radius: radius, maxSpeed: 200.0)
-        speedometerView.setSpeed(160.0)
-        self.view.addSubview(speedometerView)
+        self.speedometerView = SpeedometerView(frame: self.speedometerFrame(radius), radius: radius, maxSpeed: 200.0)
+        self.view.addSubview(self.speedometerView)
+        
+        self.currentSpeedLabel = UILabel(frame: self.view.frame)
+        self.currentSpeedLabel.center = self.speedometerView.center
+        self.currentSpeedLabel.textColor = UIColor.whiteColor()
+        self.currentSpeedLabel.font = UIFont(name: "Avenir", size: 36.0)
+        self.currentSpeedLabel.textAlignment = NSTextAlignment.Center
+        self.view.addSubview(self.currentSpeedLabel)
+        
+        self.setSpeed(0.0)
+        self.startTimer()
     }
     
     func speedometerFrame(radius: Double) -> CGRect {
@@ -34,5 +45,19 @@ class CurrentSpeedViewController: UIViewController {
         self.backgroundLayer.locations = [0.0, 0.5]
         self.backgroundLayer.colors = [startColor.CGColor, endColor.CGColor]
         self.backgroundLayer.frame = self.view.bounds
+    }
+
+    func startTimer() {
+        NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "updateSpeed", userInfo: nil, repeats: true)
+    }
+    
+    func updateSpeed() {
+        let randomSpeed = 200.0 * Double(arc4random()) / 0xFFFFFFFF
+        self.setSpeed(randomSpeed)
+    }
+    
+    func setSpeed(speed: Double) {
+        self.speedometerView.setSpeed(speed)
+        self.currentSpeedLabel.text = "\(Int(speed)) kmph"
     }
 }
