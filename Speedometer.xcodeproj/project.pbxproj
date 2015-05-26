@@ -12,6 +12,8 @@
 		654F64381B1451C80087F148 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 654F64361B1451C80087F148 /* Main.storyboard */; };
 		654F643A1B1451C80087F148 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 654F64391B1451C80087F148 /* Images.xcassets */; };
 		654F643D1B1451C80087F148 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 654F643B1B1451C80087F148 /* LaunchScreen.xib */; };
+		654F645B1B1456790087F148 /* SpeedometerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654F645A1B1456790087F148 /* SpeedometerView.swift */; };
+		654F645F1B1461920087F148 /* SpeedometerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654F645A1B1456790087F148 /* SpeedometerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +36,9 @@
 		654F643C1B1451C80087F148 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		654F64421B1451C80087F148 /* SpeedometerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpeedometerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		654F64471B1451C80087F148 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		654F64571B14552E0087F148 /* SpeedometerTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SpeedometerTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		654F645A1B1456790087F148 /* SpeedometerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeedometerView.swift; sourceTree = "<group>"; };
+		654F64631B1474A50087F148 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +64,7 @@
 			children = (
 				654F642F1B1451C80087F148 /* Speedometer */,
 				654F64451B1451C80087F148 /* SpeedometerTests */,
+				654F64651B1474B30087F148 /* Frameworks */,
 				654F642E1B1451C80087F148 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -79,6 +85,7 @@
 				654F64521B1452930087F148 /* Controllers */,
 				654F64541B1453C30087F148 /* Logic */,
 				654F64301B1451C80087F148 /* Supporting Files */,
+				654F64551B1454770087F148 /* Views */,
 				654F64321B1451C80087F148 /* AppDelegate.swift */,
 			);
 			path = Speedometer;
@@ -95,7 +102,9 @@
 		654F64451B1451C80087F148 /* SpeedometerTests */ = {
 			isa = PBXGroup;
 			children = (
+				654F645C1B145B1E0087F148 /* Mock */,
 				654F64461B1451C80087F148 /* Supporting Files */,
+				654F64561B1454AB0087F148 /* Views */,
 			);
 			path = SpeedometerTests;
 			sourceTree = "<group>";
@@ -103,9 +112,10 @@
 		654F64461B1451C80087F148 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				654F64571B14552E0087F148 /* SpeedometerTests-Bridging-Header.h */,
 				654F64471B1451C80087F148 /* Info.plist */,
 			);
-			name = "Supporting Files";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		654F64521B1452930087F148 /* Controllers */ = {
@@ -131,6 +141,36 @@
 			children = (
 			);
 			path = Logic;
+			sourceTree = "<group>";
+		};
+		654F64551B1454770087F148 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				654F645A1B1456790087F148 /* SpeedometerView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		654F64561B1454AB0087F148 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		654F645C1B145B1E0087F148 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
+		654F64651B1474B30087F148 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				654F64631B1474A50087F148 /* QuartzCore.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,6 +276,7 @@
 			files = (
 				654F64351B1451C80087F148 /* CurrentSpeedViewController.swift in Sources */,
 				654F64331B1451C80087F148 /* AppDelegate.swift in Sources */,
+				654F645B1B1456790087F148 /* SpeedometerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,6 +284,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				654F645F1B1461920087F148 /* SpeedometerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -383,6 +425,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -391,9 +434,11 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = SpeedometerTests/Info.plist;
+				INFOPLIST_FILE = "SpeedometerTests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SpeedometerTests/Supporting Files/SpeedometerTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Speedometer.app/Speedometer";
 			};
 			name = Debug;
@@ -402,13 +447,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = SpeedometerTests/Info.plist;
+				INFOPLIST_FILE = "SpeedometerTests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SpeedometerTests/Supporting Files/SpeedometerTests-Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Speedometer.app/Speedometer";
 			};
 			name = Release;
